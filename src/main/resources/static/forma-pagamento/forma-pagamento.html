@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formas de Pagamento - Confecção</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<div id="header-container"></div>
+	<script src="/header.js"></script>
+
+	<h1>Formas de Pagamento</h1>
+
+	<div class="card">
+		<h2>Nova Forma de Pagamento</h2>
+		<div class="form-group">
+			<label>Nome do Pagamento:</label> <input type="text" id="nome"
+				placeholder="Ex: Cartão Visa">
+		</div>
+		<div class="form-group">
+			<label>Tipo:</label> <input type="text" id="tipo"
+				placeholder="Ex: Crédito, Débito, PIX, Boleto">
+		</div>
+		<div class="form-group">
+			<label>Parcelas Máximas:</label> <input type="number"
+				id="parcelasMaximas" placeholder="Ex: 12 (Use 1 para PIX/Débito)">
+		</div>
+		<button class="btn btn-save" onclick="salvarPagamento()">Salvar
+			Forma de Pagamento</button>
+	</div>
+
+	<div class="card">
+		<h2>Métodos Cadastrados</h2>
+		<button class="btn btn-refresh" onclick="listarPagamentos()">Atualizar
+			Lista</button>
+		<table id="tabelaPagamentos">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nome</th>
+					<th>Tipo</th>
+					<th>Parcelas Máx.</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</div>
+
+	<div id="modalEdicao" class="modal">
+		<div class="modal-content">
+			<h2>Editar Forma de Pagamento</h2>
+			<hr>
+			<input type="hidden" id="editId">
+
+			<div class="form-group">
+				<label>Nome do Pagamento:</label> <input type="text" id="editNome">
+			</div>
+			<div class="form-group">
+				<label>Tipo:</label> <input type="text" id="editTipo">
+			</div>
+			<div class="form-group">
+				<label>Parcelas Máximas:</label> <input type="number"
+					id="editParcelas">
+			</div>
+
+			<div style="display: flex; gap: 10px; margin-top: 20px;">
+				<button class="btn btn-save" onclick="salvarEdicao()">Salvar
+					Alterações</button>
+				<button class="btn" style="background: #6c757d; color: white;"
+					onclick="fecharModal()">Cancelar</button>
+			</div>
+		</div>
+	</div>
+	<div id="footer-container"></div>
+	<script src="../footer.js"></script>
+	<script src="forma-pagamento.js"></script>
+</body>
+</html>
